@@ -73,7 +73,7 @@
       dir "$(TargetPath)"
       xcopy /y "$(TargetPath)" "C:\releases\GameData\$(ProjectName)\Plugins\"
       powershell -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; iwr https://github.com/KerbalCont/KSE-Resources/archive/master.zip -OutFile STE.zip; Expand-Archive -Path STE.zip -DestinationPath STE;"
-      cd STE
+      cd STE/KSE-Resources-master
       dir
     </PostBuildEvent>
   </PropertyGroup>
