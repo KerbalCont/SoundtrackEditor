@@ -84,7 +84,7 @@
       copy "SoundtrackEditor\Images\sted.png" "sted-release\Images"
       dir "sted-release"
       
-      powershell -Command "Compress-Archive -U -Path "sted-release" -DestinationPath C:\projects\soundtrackeditor\sted.zip"
+      powershell -Command "Compress-Archive -LiteralPath "sted-release" -DestinationPath C:\projects\soundtrackeditor\sted.zip"
     </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
