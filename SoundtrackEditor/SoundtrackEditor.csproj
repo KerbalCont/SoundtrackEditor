@@ -81,7 +81,7 @@
       mkdir "C:\releases\GameData\$(ProjectName)\Images"
       xcopy /y "SoundtrackEditor/Images/sted.png" "C:\releases\GameData\$(ProjectName)\Images"
       dir "C:\releases\GameData\$(ProjectName)\"
-      powershell -Command "Compress-Archive -U -Path "C:/releases/GameData/$(ProjectName)/*" -DestinationPath C:\projects\soundtrackeditor\sted.zip"
+      powershell -Command "Compress-Archive -U -Path "C:\releases\GameData" -DestinationPath C:\projects\soundtrackeditor\sted.zip"
     </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
