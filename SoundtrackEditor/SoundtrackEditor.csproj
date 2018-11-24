@@ -75,6 +75,7 @@
       powershell -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; iwr https://github.com/KerbalCont/KSE-Resources/archive/master.zip -OutFile STE.zip; Expand-Archive -Path STE.zip -DestinationPath STE;"
       cd STE
       dir STE
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
