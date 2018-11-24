@@ -71,17 +71,20 @@
   <PropertyGroup>
     <PostBuildEvent>
       dir "$(TargetPath)"
-      xcopy /y "$(TargetPath)" "C:\releases\GameData\$(ProjectName)\Plugins\"
       powershell -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; iwr https://github.com/KerbalCont/KSE-Resources/archive/master.zip -OutFile STE.zip; Expand-Archive -Path STE.zip -DestinationPath STE;"
       cd STE/KSE-Resources-master
       dir
       powershell -Command "Compress-Archive -U -Path MusicPack/* -DestinationPath C:\projects\soundtrackeditor\muspack.zip"
-      xcopy /y "SoundtrackEditor/libmpg123-0.dll" "C:\releases\GameData\$(ProjectName)\Plugins\"
-      xcopy /y "SoundtrackEditor/SoundtrackEditor.version" "C:\releases\GameData\$(ProjectName)\"
-      mkdir "C:\releases\GameData\$(ProjectName)\Images"
-      xcopy /y "SoundtrackEditor/Images/sted.png" "C:\releases\GameData\$(ProjectName)\Images"
-      dir "C:\releases\GameData\$(ProjectName)\"
-      powershell -Command "Compress-Archive -U -Path "C:\releases\GameData" -DestinationPath C:\projects\soundtrackeditor\sted.zip"
+      
+      mkdir "sted-release"
+      xcopy /y "SoundtrackEditor\libmpg123-0.dll" "sted-release\Plugins"
+      xcopy /y "$(TargetPath)\SoundtrackEditor.dll" "sted-release\Plugins"
+      xcopy /y "SoundtrackEditor\SoundtrackEditor.version" "sted-release"
+      mkdir "sted-release\Images"
+      xcopy /y "SoundtrackEditor\Images\sted.png" "sted-release\Images"
+      dir "sted-release"
+      
+      powershell -Command "Compress-Archive -U -Path "sted-release" -DestinationPath C:\projects\soundtrackeditor\sted.zip"
     </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
