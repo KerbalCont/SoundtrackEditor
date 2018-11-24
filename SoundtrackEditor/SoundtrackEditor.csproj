@@ -76,16 +76,16 @@
       dir
       powershell -Command "Compress-Archive -U -Path MusicPack/* -DestinationPath C:\projects\soundtrackeditor\muspack.zip"
       
-      mkdir "sted-release"
-      copy "SoundtrackEditor\libmpg123-0.dll" "sted-release\Plugins"
-      copy "$(TargetPath)\SoundtrackEditor.dll" "sted-release\Plugins"
-      copy "SoundtrackEditor\SoundtrackEditor.version" "sted-release"
-      mkdir "sted-release\Images"
-      copy "SoundtrackEditor\Images\sted.png" "sted-release\Images"
-      dir "sted-release"
+      mkdir "SoundtrackEditor"
+      mkdir "SoundtrackEditor/Images"
+      mkdir "SoundtrackEditor/Plugins"
+      copy "SoundtrackEditor\libmpg123-0.dll" "SoundtrackEditor\Plugins"
+      copy "$(TargetPath)\SoundtrackEditor.dll" "SoundtrackEditor\Plugins"
+      copy "SoundtrackEditor\SoundtrackEditor.version" "SoundtrackEditor"
+      copy "SoundtrackEditor\Images\sted.png" "SoundtrackEditor\Images"
       
-      powershell -Command "Compress-Archive -LiteralPath "sted-release" -DestinationPath C:\projects\soundtrackeditor\sted.zip"
-    </PostBuildEvent>
+      7z a sted.zip ./SoundtrackEditor/*
+          </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
