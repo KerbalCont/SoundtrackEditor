@@ -84,7 +84,7 @@
       copy "SoundtrackEditor\SoundtrackEditor.version" "SoundtrackEditor"
       copy "SoundtrackEditor\Images\sted.png" "SoundtrackEditor\Images"
       
-      7z a sted.zip ./SoundtrackEditor/*
+      7z a C:\projects\soundtrackeditor\sted.zip ./SoundtrackEditor/*
           </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
